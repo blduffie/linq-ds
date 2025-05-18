@@ -8,6 +8,7 @@
   "contributors": [
     "Bronwyn Duffield <bronwyn.duffield@linq.com>"
   ],
+  "main": "./index.js",
   "peerDependencies": {
     "tailwindcss": "^3.4.4"
   },
