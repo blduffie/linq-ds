@@ -28,7 +28,7 @@
 │ Version  : 2.0.0                                                            │
 \*─────────────────────────────────────────────────────────────────────────────*/
 
-
+const { pxToEm, pxToRem } = require('../util');
 
 const linqSizingFixed = {
   px: "1px",
