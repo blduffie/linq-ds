@@ -312,19 +312,6 @@ module.exports = {
   },
 
   plugins: [
-    require("@tailwindcss/container-queries"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/font-face"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/base"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/aspect-ratio"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/button"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/container"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/focus"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/form"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/icon"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/identifier"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/link"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/logo"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/typography"),
-    require("../../../../Tailwind/@electronds/tailwind/plugins/rich-text"),
+    require("@tailwindcss/container-queries")
   ],
 };
