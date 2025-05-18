@@ -20,7 +20,7 @@ Follow the official guide:
 ### 2. **Install the LINQ Design System NPM Package**
 
 ```bash
-npm install -D @linq/design-system
+npm install -D linq-ds/tailwind
 ```
 
 ### 3. **Create/Update Your Tailwind Config**
@@ -38,7 +38,7 @@ Edit your `tailwind.config.js` to use the LINQ design system preset:
 ```js
 module.exports = {
   presets: [
-    require('@linq/design-system/src/presets/tailwind.preset.js'),
+    require('linq-ds/tailwind').preset,
   ],
   content: [
     './src/**/*.{html,ts,js,scss}',
@@ -58,7 +58,7 @@ module.exports = {
 To ensure full branding consistency, import the provided SCSS for Angular Material theming in your global styles (usually `src/styles.scss`):
 
 ```scss
-@import '~@linq/design-system/src/scss/material-theme';
+@import 'linq-ds/tailwind/scss/material-theme';
 ```
 
 This will apply your primary, accent, and warn colors as defined in the design tokens, as well as typography settings.
@@ -81,12 +81,12 @@ This will apply your primary, accent, and warn colors as defined in the design t
 ## 🖼️ Using Assets
 
 Reference any SVG, icon, or font files in your project by pointing to
-`node_modules/@linq/des/src/assets/` (adjust for actual published path).
+`node_modules/linq-ds/tailwind/assets/` (adjust for actual published path).
 
 Example for an SVG in your component:
 
 ```html
-<img src="node_modules/@linq/ds/src/assets/logo.svg" alt="LINQ logo">
+<img src="node_modules/linq-ds/tailwind/assets/logo.svg" alt="LINQ logo">
 ```
 
 For fonts, the Tailwind preset or Material theme SCSS will typically include `@font-face` definitions that pull from the assets folder.
@@ -118,7 +118,7 @@ For bug reports or feature requests, please file an issue.
 // tailwind.config.js
 module.exports = {
   presets: [
-    require('@linq/ds/src/presets/tailwind.preset.js'),
+    require('linq-ds/tailwind').preset,
   ],
   content: [
     './src/**/*.{html,ts,js,scss}',
@@ -131,7 +131,7 @@ module.exports = {
 
 ```scss
 // styles.scss
-@import '~@linq/ds/src/scss/material-theme';
+@import 'linq-ds/tailwind/scss/material-theme';
 ```
 
 ---
