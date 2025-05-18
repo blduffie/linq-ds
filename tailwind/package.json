@@ -20,5 +20,13 @@
   },
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "copy:base": "cp -r ./src/* ./dist",
+    "copy:root": "cp package.json ./dist && cp README.md ./dist",
+    "build": "npm run clean && mkdir dist && npm run copy:root && npm run copy:base",
+    "dev": "tailwindcss -i src/input.css -o dist/output.css --watch",
+    "publish": "npm run build && npm publish"
   }
 }

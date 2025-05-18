@@ -38,7 +38,7 @@ Edit your `tailwind.config.js` to use the LINQ design system preset:
 ```js
 module.exports = {
   presets: [
-    require('linq-ds/tailwind').preset,
+    require('linq-ds/tailwind/themes/linq'),
   ],
   content: [
     './src/**/*.{html,ts,js,scss}',
@@ -118,7 +118,7 @@ For bug reports or feature requests, please file an issue.
 // tailwind.config.js
 module.exports = {
   presets: [
-    require('linq-ds/tailwind').preset,
+    require('linq-ds/tailwind/themes/linq'),
   ],
   content: [
     './src/**/*.{html,ts,js,scss}',
