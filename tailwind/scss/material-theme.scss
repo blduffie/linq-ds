@@ -1,0 +1,39 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$linq-primary-map: (
+  100: #6ee4eb,
+  500: #007897,
+  700: #005070,
+  900: #0f2d4a,
+);
+$linq-accent-map: (
+  100: #fee4c4,
+  500: #f8a02d,
+  700: #c37106,
+  900: #905305,
+);
+$linq-warn-map: (
+  100: #fdcfcb,
+  500: #f35f54,
+  700: #be362c,
+  900: #8c2821,
+);
+
+$linq-primary: mat.define-palette($linq-primary-map, 500, 100, 700);
+$linq-accent: mat.define-palette($linq-accent-map, 500, 100, 700);
+$linq-warn: mat.define-palette($linq-warn-map, 500);
+
+$linq-theme: mat.define-light-theme((
+  color: (
+    primary: $linq-primary,
+    accent: $linq-accent,
+    warn: $linq-warn,
+  ),
+  typography: mat.define-typography-config(
+    $font-family: 'Work Sans', 'Arial', sans-serif
+  )
+));
+
+@include mat.all-component-themes($linq-theme);

@@ -72,7 +72,7 @@ This will apply your primary, accent, and warn colors as defined in the design t
 | `src/assets/`               | LINQ SVGs, logos, icons, fonts                        |
 | `src/presets/`              | Tailwind preset configuration file                    |
 | `src/tw-plugins/`           | Tailwind Plugins (color, typography, spacing, etc.)   |
-| `src/material/`             | Angular Material SCSS theme and utilities             |
+| `scss/material-theme.scss`             | Angular Material SCSS theme |
 | `README.md`                 | You’re reading it!                                    |
 | `package.json`              | NPM package config                                    |
 
