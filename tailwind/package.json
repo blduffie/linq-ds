@@ -1,0 +1,41 @@
+{
+  "name": "linq-ds/tailwind",
+  "version": "0.1.0",
+  "description": "LINQs official design tokens, Tailwind preset, and branded assets.",
+  "license": "MIT",
+  "main": "",
+  "repository": "https://github.com/blduffie/linq-ds.git",
+  "author": "LINQ",
+  "contributors": [
+    "Bronwyn Duffield <bronwyn.duffield@linq.com>"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "fresh": "rm -rf public && mkdir public && mkdir public/assets",
+    "copy:base": "cp -r ./src/* ./dist",
+    "copy:root": "cp package.json ./dist && cp README.md ./dist",
+    "copy": "cp -r src/assets/fonts public/assets/fonts && cp -r src/assets/img public/assets/img && cp -r src/assets/css public/assets/css && cp -r src/assets/svg public/assets/svg",
+    "tailwind": "tailwindcss -i src/assets/css/tailwind.css -o public/assets/css/styles.css --watch",
+    "eleventy": "eleventy --serve --quiet",
+    "dev": "npm run clean && npm run copy && npm run eleventy & npm run tailwind",
+    "start": "eleventy --serve & tailwindcss -i src/assets/css/tailwind.css -o public/assets/css/styles.css --watch",
+    "build2": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss build src/assets/css/tailwind.css -o public/assets/css/tailwind.css",
+    "build": "npm run clean && mkdir dist && npm run copy:root && npm run copy:base ",
+    "build-pkg": "npm run build && cd dist"
+  },
+  "engines": {
+    "node": "22.15.0"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.4.4"
+  },
+  "dependencies": {
+    "@tailwindcss/container-queries": "^0.1.1"
+  }
+}

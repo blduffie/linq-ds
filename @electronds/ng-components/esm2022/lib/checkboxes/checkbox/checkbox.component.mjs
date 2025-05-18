@@ -1,0 +1,13 @@
+import { Component } from '@angular/core';
+import { CheckboxesBase } from '../_helpers/checkboxes.base';
+import * as i0 from "@angular/core";
+class CheckboxComponent extends CheckboxesBase {
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.4", ngImport: i0, type: CheckboxComponent, deps: null, target: i0.ɵɵFactoryTarget.Component }); }
+    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "16.0.4", type: CheckboxComponent, selector: "eds-checkbox", usesInheritance: true, ngImport: i0, template: "<input class=\"checkbox\"\n       type=\"checkbox\"\n       title=\"checkbox\"\n       [checked]=\"isChecked\"\n       (change)=\"handleCheckedChanged($event)\" />\n<label class=\"\"\n       for=\"checkbox\">{{text}}</label>", styles: [""] }); }
+}
+export { CheckboxComponent };
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.4", ngImport: i0, type: CheckboxComponent, decorators: [{
+            type: Component,
+            args: [{ selector: 'eds-checkbox', template: "<input class=\"checkbox\"\n       type=\"checkbox\"\n       title=\"checkbox\"\n       [checked]=\"isChecked\"\n       (change)=\"handleCheckedChanged($event)\" />\n<label class=\"\"\n       for=\"checkbox\">{{text}}</label>" }]
+        }] });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hlY2tib3guY29tcG9uZW50LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vY29tcG9uZW50cy9zcmMvbGliL2NoZWNrYm94ZXMvY2hlY2tib3gvY2hlY2tib3guY29tcG9uZW50LnRzIiwiLi4vLi4vLi4vLi4vLi4vLi4vY29tcG9uZW50cy9zcmMvbGliL2NoZWNrYm94ZXMvY2hlY2tib3gvY2hlY2tib3guY29tcG9uZW50Lmh0bWwiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFNBQVMsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUUxQyxPQUFPLEVBQUUsY0FBYyxFQUFFLE1BQU0sNkJBQTZCLENBQUM7O0FBRTdELE1BS2EsaUJBQWtCLFNBQVEsY0FBYzs4R0FBeEMsaUJBQWlCO2tHQUFqQixpQkFBaUIsMkVDVDlCLGtPQU1zQzs7U0RHekIsaUJBQWlCOzJGQUFqQixpQkFBaUI7a0JBTDdCLFNBQVM7K0JBQ0UsY0FBYyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuXG5pbXBvcnQgeyBDaGVja2JveGVzQmFzZSB9IGZyb20gJy4uL19oZWxwZXJzL2NoZWNrYm94ZXMuYmFzZSc7XG5cbkBDb21wb25lbnQoe1xuICBzZWxlY3RvcjogJ2Vkcy1jaGVja2JveCcsXG4gIHRlbXBsYXRlVXJsOiAnLi9jaGVja2JveC5jb21wb25lbnQuaHRtbCcsXG4gIHN0eWxlVXJsczogWycuL2NoZWNrYm94LmNvbXBvbmVudC5zY3NzJ10sXG59KVxuZXhwb3J0IGNsYXNzIENoZWNrYm94Q29tcG9uZW50IGV4dGVuZHMgQ2hlY2tib3hlc0Jhc2Uge31cbiIsIjxpbnB1dCBjbGFzcz1cImNoZWNrYm94XCJcbiAgICAgICB0eXBlPVwiY2hlY2tib3hcIlxuICAgICAgIHRpdGxlPVwiY2hlY2tib3hcIlxuICAgICAgIFtjaGVja2VkXT1cImlzQ2hlY2tlZFwiXG4gICAgICAgKGNoYW5nZSk9XCJoYW5kbGVDaGVja2VkQ2hhbmdlZCgkZXZlbnQpXCIgLz5cbjxsYWJlbCBjbGFzcz1cIlwiXG4gICAgICAgZm9yPVwiY2hlY2tib3hcIj57e3RleHR9fTwvbGFiZWw+Il19

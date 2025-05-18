@@ -1,0 +1,4 @@
+export * from './svg.module';
+export * from './svg.component';
+export * from './_helpers';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9jb21wb25lbnRzL3NyYy9saWIvc3ZnL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQWMsY0FBYyxDQUFBO0FBQzVCLGNBQWMsaUJBQWlCLENBQUM7QUFDaEMsY0FBYyxZQUFZLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL3N2Zy5tb2R1bGUnXG5leHBvcnQgKiBmcm9tICcuL3N2Zy5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9faGVscGVycyc7Il19
