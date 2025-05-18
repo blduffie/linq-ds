@@ -1,0 +1,140 @@
+<div class="text-center bg-slate-300 overflow-auto">
+  <section>
+    <h1 class="mb-4 text-3xl leading-none tracking-tight font-extrabold text-gray-900 md:text-5xl lg:text-6xl">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">TaskTamer:</span> Because Life Needs a List
+    </h1>
+    <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+      Ever missed an anniversary because you forgot to buy flowers? Yeah, us too. Welcome to TaskTamer, where you can finally keep track of all the important (and not-so-important) things in life. Add tasks, create subtasks, and clean up your list with ruthless efficiency. Mark them complete and feel that sweet, sweet relief. Tame your to-dos and never miss a beat again.
+    </p>
+
+    <div class="flex items-end justify-end mb-6">
+      <button (click)="addItem($event)" mat-raised-button class="btn-teal">
+        Create Task
+      </button>
+    </div>
+    <div class="flex flex-col items-center justify-center w-full">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" multiTemplateDataRows>
+        <ng-container matColumnDef="task">
+          <th mat-header-cell *matHeaderCellDef>Task</th>
+          <td mat-cell *matCellDef="let element">{{ element.task }}</td>
+        </ng-container>
+        <ng-container matColumnDef="deadline">
+          <th mat-header-cell *matHeaderCellDef>Deadline</th>
+          <td mat-cell *matCellDef="let element">
+            <div [matTooltip]="(element.deadline | isBeforeDate : today) ? 'Deadline has passed.' : ''" [ngClass]="(element.deadline | isBeforeDate : today) ? 'deadline-past text-white bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' : ''">
+              {{ element.deadline | date : 'short' }}
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef>Details</th>
+          <td mat-cell *matCellDef="let element">{{ element.details }}</td>
+        </ng-container>
+        <ng-container matColumnDef="isComplete">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="task-status"
+              [ngClass]="element.isComplete ? 'chip-green' : (element.deadline | isBeforeDate : today) ? 'chip-amber' : 'chip-slate'">
+              {{ element.isComplete ? 'Completed' : (element.deadline | isBeforeDate : today) ? 'Past Due' : 'Active' }}
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deleteTask(element.id)">
+                <span>Delete</span>
+                <mat-icon svgIcon="trash"></mat-icon>
+              </button>
+              <button mat-menu-item (click)="addSubTask(element)">
+                <span>Add Subtask</span>
+                <mat-icon svgIcon="plus"></mat-icon>
+              </button>
+              <button mat-menu-item (click)="markComplete(element.id)">
+                <span>Mark Complete</span>
+                <mat-icon svgIcon="complete"></mat-icon>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="expand">
+          <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button aria-label="expand row" (click)="expandedElement = expandedElement === element ? null : element; $event.stopPropagation()">
+              <mat-icon>{{ expandedElement === element ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+          <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+            <div class="subtask-container bg-slate-100" [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'">
+              @if (element.subTasks?.length > 0) {
+                <mat-card class="ml-24 my-10">
+                  <mat-card-header>
+                    <mat-card-title>Subtasks</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <table mat-table [dataSource]="element.subTasks">
+                      <ng-container matColumnDef="task">
+                        <th mat-header-cell *matHeaderCellDef>Subtask</th>
+                        <td mat-cell *matCellDef="let element">{{ element.task }}</td>
+                      </ng-container>
+                      <ng-container matColumnDef="deadline">
+                        <th mat-header-cell *matHeaderCellDef>Deadline</th>
+                        <td mat-cell *matCellDef="let element">
+                          <div [matTooltip]="(element.deadline | isBeforeDate : today) ? 'Deadline has passed.' : ''" [ngClass]="(element.deadline | isBeforeDate : today) ? 'deadline-past text-white bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' : ''">
+                            {{ element.deadline | date : 'short' }}
+                          </div>
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="details">
+                        <th mat-header-cell *matHeaderCellDef>Details</th>
+                        <td mat-cell *matCellDef="let element">{{ element.details }}</td>
+                      </ng-container>
+                      <ng-container matColumnDef="isComplete">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let element">
+                          <div class="task-status"
+                            [ngClass]="element.isComplete ? 'chip-green' : (element.deadline | isBeforeDate : today) ? 'chip-amber' : 'chip-slate'">
+                            {{ element.isComplete ? 'Completed' : (element.deadline | isBeforeDate : today) ? 'Past Due' : 'Active' }}
+                          </div>
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let element">
+                          <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+                            <mat-icon>more_vert</mat-icon>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="deleteTask(element.id)">
+                              <span>Delete</span>
+                              <mat-icon svgIcon="trash"></mat-icon>
+                            </button>
+                            <button mat-menu-item (click)="markComplete(element.id)">
+                              <span>Mark Complete</span>
+                              <mat-icon svgIcon="complete"></mat-icon>
+                            </button>
+                          </mat-menu>
+                        </td>
+                      </ng-container>
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+                  </mat-card-content>
+                </mat-card>
+              }
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand" class="task-row" [class.subtask-expanded]="expandedElement === element" (click)="expandedElement = expandedElement === element ? null : element"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-expanded-row"></tr>
+      </table>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,146 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*",
+    "**/*.scss",
+    "**/*.js"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variableLike",
+            "format": [
+              "camelCase",
+              "UPPER_CASE",
+              "PascalCase"
+            ],
+            "leadingUnderscore": "allow"
+          },
+          {
+            "selector": [
+              "variable",
+              "property"
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "format": [
+              "camelCase",
+              "UPPER_CASE"
+            ],
+            "leadingUnderscore": "require"
+          },
+          {
+            "selector": "variable",
+            "types": [
+              "boolean"
+            ],
+            "format": [
+              "PascalCase"
+            ],
+            "prefix": [
+              "all",
+              "allow",
+              "already",
+              "can",
+              "did",
+              "display",
+              "does",
+              "has",
+              "is",
+              "need",
+              "should",
+              "show",
+              "using",
+              "will"
+            ]
+          }
+        ],
+        "@typescript-eslint/member-ordering": [
+          "warn",
+          {
+            "classes": [
+              "public-decorated-method",
+              "public-decorated-field",
+              "protected-decorated-field",
+              "private-decorated-field",
+              "public-field",
+              "protected-field",
+              "private-field",
+              "constructor",
+              "public-method",
+              "protected-method",
+              "private-method"
+            ]
+          }
+        ],
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
+          }
+        ],
+        "@typescript-eslint/ban-types": "warn",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-inferrable-types": "warn",
+        "@typescript-eslint/no-unsafe-member-access": "warn",
+        "@typescript-eslint/no-unsafe-return": "warn",
+        "@typescript-eslint/no-unsafe-call": "warn",
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/prefer-for-of": "warn",
+        "@typescript-eslint/restrict-template-expressions": "warn",
+        "curly": "warn",
+        "default-case": "warn",
+        "no-console": "warn",
+        "no-underscore-dangle": "off",
+        "semi": "warn",
+        "spaced-comment": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

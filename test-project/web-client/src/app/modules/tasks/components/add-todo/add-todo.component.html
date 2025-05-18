@@ -1,0 +1,53 @@
+<div class="flex flex-col w-[700px] p-10">
+  <div class="flex flex-row justify-between">
+    <h2 class="text-title flex w-full justify-between">
+      Add Task
+      <button mat-icon-button [mat-dialog-close]="false" class="dark:text-dm-accent">
+        <mat-icon>close</mat-icon>
+      </button>
+    </h2>
+  </div>
+  <div>
+    <form [formGroup]="todoForm" class="flex flex-col justify-around h-full w-full gap-6">
+      <div class="flex flex-col mx-10">
+        <mat-label>Task</mat-label>
+        <mat-form-field appearance="outline">
+          <input type="text" matInput required formControlName="task" placeholder="Add a Task" />
+          @if (task.invalid) {
+          <mat-error>Task name is required.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="flex flex-col mx-10">
+        <mat-label>Deadline</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [matDatepicker]="picker" formControlName="deadline" placeholder="MM/DD/YYYY" required />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          @if (deadline.invalid) {
+          <mat-error>Task name is required.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="flex flex-col mx-10">
+        <mat-label>Details</mat-label>
+        <mat-form-field appearance="outline">
+          <textarea matInput formControlName="details" class="min-h-24" placeholder="Please enter any details."
+            required></textarea>
+          @if (details.invalid) {
+          <mat-error>Task name is required.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="flex flex-col mx-10">
+        <mat-checkbox class="mr-10" formControlName="isComplete"> Is Completed </mat-checkbox>
+      </div>
+      <div class="save_form_section w-full flex items-center justify-center">
+        <button mat-raised-button (click)="save()" [disabled]="todoForm.invalid" [ngClass]="todoForm.invalid ? 'btn-disabled' :'btn-teal'">
+          SAVE
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+table {
+  width: 100%;
+}
+
+tr.detail-expanded-row {
+  height: 0;
+}
+
+tr.task-row:not(.subtask-expanded):hover {
+  background: whitesmoke;
+}
+
+tr.task-row:not(.subtask-expanded):active {
+  background: #efefef;
+}
+
+.task-row td {
+  border-bottom-width: 0;
+}
+
+.subtask-container {
+  overflow: hidden;
+  display: flex;
+}
+
+.chip-amber {
+  @apply bg-amber-100 text-amber-700;
+}
+
+.chip-green {
+  @apply bg-green-100 text-green-700;
+}
+
+.chip-slate {
+  @apply bg-slate-100 text-slate-700;
+}
+
+.task-status {
+  @apply text-center px-3 py-1 uppercase font-bold text-xs rounded-full shadow-sm;
+}
+
+th, td {
+  @apply text-center #{!important}; 
+}

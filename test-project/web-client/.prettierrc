@@ -1,0 +1,18 @@
+{
+  "printWidth": 80,
+  "overrides": [
+    {
+      "files": "**/*.html",
+      "options": {
+        "printWidth": 120
+      }
+    },
+    {
+      "files": "**/*.ts",
+      "options": {
+        "singleQuote": true,
+        "printWidth": 100
+      }
+    }
+  ]
+}
