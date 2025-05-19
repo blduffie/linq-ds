@@ -1,5 +1,5 @@
 {
-  "name": "linq-ds/tailwind",
+  "name": "@linq-ds/tailwind",
   "version": "0.1.0",
   "description": "LINQs official design tokens, Tailwind preset, and branded assets.",
   "license": "MIT",
