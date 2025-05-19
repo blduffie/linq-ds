@@ -1,5 +1,5 @@
 const plugin = require('tailwindcss/plugin');
-const { remToVw } = require('../../src/util.js');
+const { remToVw } = require('../../util.js');
 
 module.exports = plugin(function({ addBase, theme }) {
   addBase({

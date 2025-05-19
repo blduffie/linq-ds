@@ -58,88 +58,14 @@ module.exports = {
 To ensure full branding consistency, import the provided SCSS for Angular Material theming in your global styles (usually `src/styles.scss`):
 
 ```scss
-@import 'linq-ds/tailwind/scss/material-theme';
+@import 'linq-ds/tailwind/material/material-theme';
 ```
 
 This will apply your primary, accent, and warn colors as defined in the design tokens, as well as typography settings.
 
 ---
 
-## 📁 Directory Structure
-
-| Folder/file                 | Purpose                                                |
-|-----------------------------|--------------------------------------------------------|
-| `src/assets/`               | LINQ SVGs, logos, icons, fonts                        |
-| `src/presets/`              | Tailwind preset configuration file                    |
-| `src/tw-plugins/`           | Tailwind Plugins (color, typography, spacing, etc.)   |
-| `scss/material-theme.scss`             | Angular Material SCSS theme |
-| `README.md`                 | You’re reading it!                                    |
-| `package.json`              | NPM package config                                    |
-
----
-
-## 🖼️ Using Assets
-
-Reference any SVG, icon, or font files in your project by pointing to
-`node_modules/linq-ds/tailwind/assets/` (adjust for actual published path).
-
-Example for an SVG in your component:
-
-```html
-<img src="node_modules/linq-ds/tailwind/assets/logo.svg" alt="LINQ logo">
-```
-
-For fonts, the Tailwind preset or Material theme SCSS will typically include `@font-face` definitions that pull from the assets folder.
-
----
-
-## 🔗 Tailwind Customization
-
-You can further customize your Tailwind setup by adding or extending the `theme` property in your local `tailwind.config.js`.
-See the [Tailwind documentation on theme configuration](https://tailwindcss.com/docs/theme).
-
----
-
-## 🤝 Contributing
-
-If you want to contribute, please:
-
-- Fork the repository
-- Make changes in a feature branch
-- Open a pull request with a clear description
-
-For bug reports or feature requests, please file an issue.
-
----
-
-## 📝 Example Usage
-
-```js
-// tailwind.config.js
-module.exports = {
-  presets: [
-    require('linq-ds/tailwind/themes/linq'),
-  ],
-  content: [
-    './src/**/*.{html,ts,js,scss}',
-  ],
-  theme: {
-    extend: {},
-  },
-};
-```
-
-```scss
-// styles.scss
-@import 'linq-ds/tailwind/scss/material-theme';
-```
-
----
-
 ## 🛠️ Development
-
-All design tokens are in `src/tokens/`.
-Modify these to update colors, typography, spacing, etc.
 
 To test your changes locally in another project:
 
@@ -153,16 +79,9 @@ To test your changes locally in another project:
 When ready, publish to your private or public NPM registry:
 
 ```bash
-npm version patch # or minor/major as appropriate
-npm publish --access public  # or --access restricted
+npm version patch
+npm publish --access public
 ```
 
 ---
 
-## 📝 License
-
-Choose a license that fits your organization’s needs. MIT is common for design systems.
-
----
-
-> Questions? Feedback? Please open an issue or reach out to the maintainers.
