@@ -1,27 +1,32 @@
 {
-  "name": "@linq-ds/tailwind",
-  "version": "0.1.0",
-  "description": "LINQs official design tokens, Tailwind preset, and branded assets.",
+  "name": "@blduffie/linq-ds-tailwind",
+  "version": "0.1.2",
+  "description": "LINQ's official design tokens, Tailwind preset, and branded assets.",
   "license": "MIT",
   "repository": "https://github.com/blduffie/linq-ds.git",
   "author": "LINQ",
   "contributors": [
     "Bronwyn Duffield <bronwyn.duffield@linq.com>"
   ],
-  "main": "",
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "fresh": "rm -rf public && mkdir public && mkdir public/assets",
     "copy:base": "cp -r ./src/* ./dist",
     "copy:root": "cp package.json ./dist && cp README.md ./dist",
-    "copy": "cp -r src/assets/fonts public/assets/fonts && cp -r src/assets/img public/assets/img && cp -r src/assets/css public/assets/css && cp -r src/assets/svg public/assets/svg",
+    "copy": "mkdir -p public/assets/fonts public/assets/img public/assets/css public/assets/svg && cp -r src/assets/fonts public/assets/fonts && cp -r src/assets/img public/assets/img && cp -r src/assets/css public/assets/css && cp -r src/assets/svg public/assets/svg",
     "tailwind": "tailwindcss -i src/assets/css/tailwind.css -o public/assets/css/styles.css --watch",
     "eleventy": "eleventy --serve --quiet",
     "dev": "npm run clean && npm run copy && npm run eleventy & npm run tailwind",
     "start": "eleventy --serve & tailwindcss -i src/assets/css/tailwind.css -o public/assets/css/styles.css --watch",
     "build2": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss build src/assets/css/tailwind.css -o public/assets/css/tailwind.css",
-    "build": "npm run clean && mkdir dist && npm run copy:root && npm run copy:base ",
-    "build-pkg": "npm run build && cd dist"
+    "build": "npm run clean && mkdir dist && npm run copy:root && npm run copy:base "
   },
   "peerDependencies": {
     "tailwindcss": "^3.4.4"
@@ -36,4 +41,3 @@
     "@tailwindcss/container-queries": "^0.1.1"
   }
 }
-
