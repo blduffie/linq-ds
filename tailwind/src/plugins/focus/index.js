@@ -1,10 +1,13 @@
 const plugin = require('tailwindcss/plugin');
+const { pxToRem } = require('../../util');
 
-module.exports = plugin(function({ addUtilities, theme }) {
-  addUtilities({
-    '.focus-ring': {
-      outline: `2px solid ${theme('colors.blue.DEFAULT')}`,
-      outlineOffset: '2px',
+module.exports = plugin(({ addBase, theme }) => {
+  addBase({
+    'a,button,div': {
+      '&:focus-visible': {
+        outline: `${pxToRem(4)} dotted currentColor`,
+        outlineOffset: pxToRem(2),
+      },
     },
-  }, ['focus']);
+  });
 });

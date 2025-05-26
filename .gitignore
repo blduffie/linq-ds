@@ -1,1 +1,3 @@
 tailwind/dist
+tailwind/node_modules
+tailwind/package-lock.json

@@ -1,12 +1,12 @@
 const plugin = require('tailwindcss/plugin');
+const { pxToRem } = require('../../util');
 
-module.exports = plugin(function({ addUtilities }) {
-  addUtilities({
-    '.icon': {
-      display: 'inline-block',
-      width: '1em',
-      height: '1em',
-      fill: 'currentColor',
-    },
-  });
-});
+module.exports = plugin(
+  ({ matchComponents, theme }) => {
+    matchComponents(
+      { icon: (v) => ({ height: v, width: v }) },
+      { values: theme('linqIcon') }
+    );
+  },
+  { theme: { linqIcon: (theme) => ({ ...theme('linqSizingFixed') }) } }
+);

@@ -1,11 +1,22 @@
 const plugin = require('tailwindcss/plugin');
+const { pxToRem } = require('../../util');
 
-module.exports = plugin(function({ addUtilities, theme }) {
-  addUtilities({
-    '.linq-identifier': {
-      fontSize: theme('fontSize.smMax'),
-      fontWeight: theme('fontWeight.bold'),
-      color: theme('colors.blue.dark'),
+module.exports = plugin(
+  ({ matchComponents, theme }) => {
+    matchComponents(
+      { identifier: (v) => ({ width: 'auto', height: v }) },
+      { values: theme('linqIdentifier') }
+    );
+  },
+  {
+    theme: {
+      linqIdentifier: {
+        'single-sm': pxToRem(12),
+        single: pxToRem(20),
+        'double-sm': pxToRem(24),
+        double: pxToRem(40),
+      },
     },
-  });
-});
+  }
+);
+

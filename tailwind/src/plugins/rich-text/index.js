@@ -1,8 +1,19 @@
 const plugin = require('tailwindcss/plugin');
 
-module.exports = plugin(function({ addBase, theme }) {
-  addBase({
-    '.rich-text h1': { fontSize: theme('fontSize.2xlMax'), marginBottom: theme('spacing.4') },
-    '.rich-text p': { marginBottom: theme('spacing.4') },
+module.exports = plugin(({ addComponents, theme }) => {
+  addComponents({
+    ':where(.rich-text)': {
+      '--lnq-rte-link-color': theme('colors.blue.DEFAULT'),
+      '& a': {
+        color: 'var(--lnq-rte-link-color)',
+        textDecorationLine: 'underline',
+        textDecorationThickness: '0.08em',
+        textDecorationColor: 'var(--lnq-rte-link-color)',
+        '&:hover': { textDecorationColor: 'transparent' },
+      },
+      '& ul li::marker,& ol li::marker': {
+        color: theme('colors.blue.DEFAULT'),
+      },
+    },
   });
 });

@@ -1,13 +1,18 @@
 const plugin = require('tailwindcss/plugin');
+const { pxToRem } = require('../../util');
 
-module.exports = plugin(function({ addComponents, theme }) {
-  addComponents({
-    '.container': {
-      width: '100%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      paddingLeft: theme('spacing.4'),
-      paddingRight: theme('spacing.4'),
-    },
-  });
-});
+module.exports = plugin(
+  ({ matchComponents, theme }) => {
+    matchComponents(
+      {
+        container: (v) => ({
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          maxWidth: `${v}`,
+        }),
+      },
+      { values: theme('linqContainer') }
+    );
+  },
+  { theme: { linqContainer: (theme) => ({ ...theme('maxWidth') }) } }
+);
