@@ -1,6 +1,6 @@
 {
   "name": "@blduffie/linq-ds-tailwind",
-  "version": "0.1.4",
+  "version": "0.6.0",
   "description": "LINQ's official design tokens, Tailwind preset, and branded assets.",
   "license": "MIT",
   "repository": "https://github.com/blduffie/linq-ds.git",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.20",
+    "postcss": "^8.4.35",
     "tailwindcss": "^3.4.4"
   },
   "dependencies": {

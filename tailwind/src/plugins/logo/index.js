@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const { pxToRem } = require('../../util');
 
 module.exports = plugin(
   ({ matchComponents, theme }) => {
